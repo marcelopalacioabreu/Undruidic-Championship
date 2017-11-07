@@ -30,20 +30,6 @@ AFPSCharacter::AFPSCharacter()
 
 }
 
-// Called when the game starts or when spawned
-void AFPSCharacter::BeginPlay()
-{
-	Super::BeginPlay();
-	
-}
-
-// Called every frame
-void AFPSCharacter::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
-}
-
 // Called to bind functionality to input
 void AFPSCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
@@ -84,6 +70,19 @@ void AFPSCharacter::MoveRight(float Value)
 	}
 }
 
+void AFPSCharacter::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	if (HitPoints <= 0)
+	{
+		if (GEngine)
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("Player is Dead"));
+		}
+		Destroy(this);
+
+	}
+}
 
 
 

@@ -18,17 +18,20 @@ class UC_API AFPSCharacter : public ACharacter
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* FirstPersonCameraComponent;
 
-	/** The player's weapon that is currently active in their left hand */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Weapons)
-	TAssetPtr<StaticMeshComponent> P_LeftHandActiveWeapon;
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerProperties)
+		float MaxHitPoints = 100;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = PlayerProperties)
+	float HitPoints = MaxHitPoints;
+	
 
+
+public: virtual void Tick(float DeltaTime) override;
 public:
 	// Sets default values for this character's properties
 	AFPSCharacter();
 
-protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
+public:
 
 	/** Handles moving forward/backward */
 	void MoveForward(float Val);
@@ -36,20 +39,22 @@ protected:
 	/** Handles stafing movement, left and right */
 	void MoveRight(float Val);
 
-	
-
-public:	
-
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+protected:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	/** Returns FPSMesh subobject **/
+public:
+	/** Returns Mesh1P subobject **/
 	FORCEINLINE class USkeletalMeshComponent* GetMesh1P() const { return FPSMesh; }
 	/** Returns FirstPersonCameraComponent subobject **/
 	FORCEINLINE class UCameraComponent* GetFirstPersonCameraComponent() const { return FirstPersonCameraComponent; }
 
+
+
+
 	
+
+
+
 };
