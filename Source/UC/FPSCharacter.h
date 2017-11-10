@@ -31,10 +31,15 @@ public:
 	// Sets default values for this character's properties
 	AFPSCharacter();
 
+
+
 public:
 
 	/** Handles moving forward/backward */
 	void MoveForward(float Val);
+
+	/*Make the player invisible*/
+	void GoInvisible();
 
 	/** Handles stafing movement, left and right */
 	void MoveRight(float Val);

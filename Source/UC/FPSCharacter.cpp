@@ -38,6 +38,7 @@ void AFPSCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
 
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
+	PlayerInputComponent->BindAction("Invisible", IE_Pressed, this, &AFPSCharacter::GoInvisible);
 
 	//InputComponent->BindTouch(EInputEvent::IE_Pressed, this, &AUCCharacter::TouchStarted);
 	PlayerInputComponent->BindAxis("MoveForward", this, &AFPSCharacter::MoveForward);
@@ -48,7 +49,17 @@ void AFPSCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
 	// "turnrate" is for devices that we choose to treat as a rate of change, such as an analog joystick
 	PlayerInputComponent->BindAxis("Turn", this, &APawn::AddControllerYawInput);
 	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
+
 	
+}
+
+void AFPSCharacter::GoInvisible()
+{
+	if (GEngine)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("Q clicked"));
+	}
+	//FPSMesh->SetOnlyOwnerSee(true);
 }
 
 
