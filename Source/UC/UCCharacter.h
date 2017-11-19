@@ -17,6 +17,10 @@ class AUCCharacter : public ACharacter
 	UPROPERTY(VisibleDefaultsOnly, Category=Mesh)
 	class USkeletalMeshComponent* Mesh1P;
 
+	/*Body Mesh for the player, invisible in first person*/
+	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
+	class USkeletalMeshComponent* BodyMesh1P;
+
 	/** Gun mesh: 1st person view (seen only by self) */
 	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
 	class USkeletalMeshComponent* FP_Gun;
