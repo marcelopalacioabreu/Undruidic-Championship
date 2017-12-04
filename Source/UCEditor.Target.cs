@@ -1,13 +1,14 @@
-// Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
+// Fill out your copyright notice in the Description page of Project Settings.
 
 using UnrealBuildTool;
 using System.Collections.Generic;
 
-public class UCEditorTarget : TargetRules
+public class ucEditorTarget : TargetRules
 {
-	public UCEditorTarget(TargetInfo Target) : base(Target)
+	public ucEditorTarget(TargetInfo Target) : base(Target)
 	{
 		Type = TargetType.Editor;
-		ExtraModuleNames.Add("UC");
+
+		ExtraModuleNames.AddRange( new string[] { "uc" } );
 	}
 }
