@@ -3,12 +3,12 @@
 using UnrealBuildTool;
 using System.Collections.Generic;
 
-public class ucEditorTarget : TargetRules
+public class UCEditorTarget : TargetRules
 {
-	public ucEditorTarget(TargetInfo Target) : base(Target)
+	public UCEditorTarget(TargetInfo Target) : base(Target)
 	{
 		Type = TargetType.Editor;
 
-		ExtraModuleNames.AddRange( new string[] { "uc" } );
+		ExtraModuleNames.AddRange( new string[] { "UC" } );
 	}
 }
