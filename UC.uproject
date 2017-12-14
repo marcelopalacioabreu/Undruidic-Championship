@@ -5,7 +5,7 @@
 	"Description": "",
 	"Modules": [
 		{
-			"Name": "UC",
+			"Name": "uc",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
 		}
